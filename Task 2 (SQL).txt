@@ -1,0 +1,6 @@
+SELECT 
+    p.name AS "Имя продукта",
+    c.name AS "Имя категории"
+FROM products p
+LEFT JOIN products_categories p_c ON p.product_id = p_c.product_id
+LEFT JOIN categories c ON p_c.category_id = c.category_id;
