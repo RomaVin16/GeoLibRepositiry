@@ -10,6 +10,7 @@ namespace GeoLib.Figures
         public Circle(double radius)
         {
             _radius = radius;
+            Validate.CheckCircleExistence(_radius);
         }
 
         /// <summary>
@@ -18,17 +19,7 @@ namespace GeoLib.Figures
         /// <returns></returns>
         public override double CalculateTheArea()
         {
-            try
-            {
-                Validate.CheckCircleExistence(_radius);
-                return Math.PI * Math.Pow(_radius, 2);
-            }
-            catch (Exception e)
-            {
-Console.WriteLine(e);
-            }
-
-            return 0;
+            return Math.PI * Math.Pow(_radius, 2);
         }
     }
 }

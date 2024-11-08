@@ -15,7 +15,7 @@ namespace GeoLib.Helpers
         /// <exception cref="ArgumentException"></exception>
         public static void CheckCircleExistence(double radius)
         {
-            if (radius <= 0)
+            if (radius < 0)
             {
                 throw new ArgumentException("Круг с таким радиусом не существует.");
             }
@@ -33,8 +33,10 @@ namespace GeoLib.Helpers
             if (new[] { a, b, c }.Any(x => x <= 0))
                 throw new ArgumentException("Длины сторон должны быть положительными.");
 
-            if (a + b <= c || a + c <= b || b + c <= a)
+            if (!(a + b > c && a + c > b && b + c > a))
+            {
                 throw new ArgumentException("Треугольник не существует.");
+            }
         }
     }
 }

@@ -14,6 +14,8 @@ namespace GeoLib.Figures
             _a = a;
             _b = b;
             _c = c;
+
+            Validate.CheckTriangleExistence(_a, _b, _c);
         }
 
         /// <summary>
@@ -22,20 +24,9 @@ namespace GeoLib.Figures
         /// <returns></returns>
         public override double CalculateTheArea()
         {
-            try
-            {
-                Validate.CheckTriangleExistence(_a, _b, _c);
-
-                var p = (_a + _b + _c) / 2;
+            var p = (_a + _b + _c) / 2;
 
                 return Math.Sqrt(p * (p - _a) * (p - _b) * (p - _c));
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-
-            return 0;
         }
 
         /// <summary>
@@ -44,8 +35,6 @@ namespace GeoLib.Figures
         /// <returns></returns>
         public bool IsRightAngledTriangle()
         {
-            Validate.CheckTriangleExistence(_a, _b, _c);
-
             var sortedSides = new[] { _a, _b, _c };
             Array.Sort(sortedSides);
 
