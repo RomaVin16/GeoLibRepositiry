@@ -37,6 +37,7 @@ namespace GeoLib.Helpers
             {
                 throw new ArgumentException("Треугольник не существует.");
             }
+            
         }
     }
 }
