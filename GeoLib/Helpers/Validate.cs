@@ -17,12 +17,12 @@ namespace GeoLib.Helpers
         {
             if (radius < 0)
             {
-                throw new ArgumentException("Круг с таким радиусом не существует.");
+                throw new ArgumentException("Круг с таким радиусом не существует!");
             }
         }
 
         /// <summary>
-        /// Проверка треугольника на существование 
+        /// Проверка треугольника на его существование 
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
@@ -31,13 +31,12 @@ namespace GeoLib.Helpers
         public static void CheckTriangleExistence(double a, double b, double c)
         {
             if (new[] { a, b, c }.Any(x => x <= 0))
-                throw new ArgumentException("Длины сторон должны быть положительными.");
+                throw new ArgumentException("Длины сторон должны быть положительными!");
 
             if (!(a + b > c && a + c > b && b + c > a))
             {
                 throw new ArgumentException("Треугольник не существует.");
             }
-            
         }
     }
 }
